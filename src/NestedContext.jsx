@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-
+import PropTypes from "prop-types";
 export const NestedContext = createContext();
 
 export const NestedContextProvider = ({ children, initialData = 0 }) => {
@@ -9,4 +9,9 @@ export const NestedContextProvider = ({ children, initialData = 0 }) => {
       {children}
     </NestedContext.Provider>
   );
+};
+
+NestedContextProvider.propTypes = {
+  children: PropTypes.node,
+  initialData: PropTypes.number,
 };

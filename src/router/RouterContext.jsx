@@ -1,7 +1,8 @@
 /* eslint-disable no-loop-func */
 /* eslint-disable no-restricted-globals */
 import { createContext } from "react";
-
+import PropTypes from "prop-types";
+import { Route } from "./Route";
 export const RouterContext = createContext();
 export const RouterContextProvider = ({
   children,
@@ -63,4 +64,12 @@ export const RouterContextProvider = ({
       {children}
     </RouterContext.Provider>
   );
+};
+
+RouterContextProvider.propTypes = {
+  children: PropTypes.node,
+  routes: PropTypes.arrayOf(PropTypes.instanceOf(Route)),
+  route: PropTypes.string,
+  processedRoute: PropTypes.string,
+  setParams: PropTypes.func,
 };
